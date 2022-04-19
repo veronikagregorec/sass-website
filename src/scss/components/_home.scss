@@ -1,0 +1,112 @@
+@use 'mixin';
+
+main{
+    height: 100%;
+    width: 100%;
+
+    .btn__contact{
+        width: 120px;
+        margin: auto;
+        height: 40px;
+        background-color: color(white-color);
+        margin-top: 30px;
+        @include mixin.flexCenter(row);
+        text-transform: uppercase;
+        border-radius: 50px;
+        animation: btn-opacity 2s ease;
+
+        &--first{
+            color: color(red-color);
+        }
+
+        &:active{
+            transform: scale(0.8);
+        }
+
+        &:hover{
+            background-image: linear-gradient(to right, color(red-color), color(white-color) 40%);
+        }
+        
+        @include mixin.keyframes(btn-opacity) {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+    }
+
+    .social-icons{
+        position: fixed;
+        bottom: 16px;
+        left: 16px;
+
+        a{
+            padding: 7px;
+            @include mixin.transition;
+
+            &:hover{
+                color: color(red-color);
+            }
+        }
+    }
+
+    .home{
+        height: 100%;
+        padding-top: 40vh;
+        overflow: hidden;
+        text-align: center;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2)), url(/dist/images/model.webp);
+        background-position: center;
+        background-size: cover;
+    
+        &__name{
+            font-size: 65px;
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+            animation: left 2s ease-in;
+            
+            @include mixin.keyframes(left) {
+                0% {
+                    transform: translateX(-5%);
+                }        
+
+                100% {
+                    transform: translateX(0);
+                }
+            }
+    
+            &--last{
+                color: color(red-color);
+                font-weight: 500;
+            }
+        }
+    
+        .web{
+            font-weight: 600;
+            font-size: 16px;
+            text-transform: uppercase;
+            background: linear-gradient(20deg, color(red-color), color(white-color), color(red-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-repeat: no-repeat;
+            background-size: 80%;
+            animation: shine 5s linear infinite;
+            position: relative;
+            
+            @include mixin.keyframes(shine) {
+                0% {
+                    background-position-x: -300%;
+                }
+                
+                100% {
+                    background-position-x: 300%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,96 @@
+@use 'mixin';
+
+.about{
+    padding-bottom: 32px;
+    background-image: linear-gradient(30deg, color(navy-color) 33%, color(red-color) 33%, color(white-color) 83%);
+    
+    &__bio{
+      width: 90%;
+      margin: auto;
+      line-height: 1.2;
+      animation: opacity 4s ease-in;
+
+      @include mixin.keyframes(opacity) {
+        0% {
+            opacity: 0;
+        }
+          
+        100% {
+            opacity: 1;
+        }
+      }
+  
+      .text-secondary{
+        color: color(white-color);
+        text-transform: uppercase;
+      }
+
+      p{
+        margin-top: 15px;
+      }
+  }
+
+  .jobs{
+    width: 90vw;
+    margin: auto;
+
+    @include mixin.gridCenter(32px);
+
+      &__job{
+          line-height: 1.2;
+          padding: 8px;
+          
+          h2, h3{
+              margin-top: 10px;
+          }
+          
+      }
+
+      .text-secondary{
+          color: color(white-color);
+      }
+
+      .left{
+          animation: left2 2s ease-in;
+
+          @include mixin.keyframes(left2) {
+              0% {
+                  opacity: 0;
+                  transform: translateX(-30%);
+              }
+              
+              100% {
+                  opacity: 1;
+                  transform: translateX(0);
+              }
+          }
+        }
+
+        .right{
+          animation: right2 2s ease-in;
+          
+          @include mixin.keyframes(right2) {
+            0% {
+                opacity: 0;
+                transform: translateX(30%);
+            }
+              
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+          }
+        }
+  }
+
+    &__bio-image{
+        height: 50vh;
+        width: 100%;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3));
+        @include mixin.flexCenter(column);
+
+        h2{
+          margin-top: 50px;
+        }
+    }
+}

@@ -1,0 +1,102 @@
+@use 'mixin';
+
+.projects{
+    padding-bottom: 110px;
+    background-image: linear-gradient(to right, color(red-color) 20%, color(navy-color) 80%);
+
+  &__items{
+    width: 60vw;
+    margin: 32px auto;
+    @include mixin.gridCenter(15px);
+}
+
+  &__item{
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+     
+    img{
+        width: 100%;
+        animation: flip 2s ease;
+    }
+    
+    @include mixin.keyframes(flip) {
+        0% {
+            opacity: 0;
+            transform: rotateY(180deg) rotate(90deg);
+        }
+        
+        100% {
+            opacity: 1;
+            transform: rotateY(0deg) rotate(0deg);
+        }
+    }
+
+
+     /* hover effect*/
+    &::after{
+        content: " ";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: color(red-color);
+        opacity: 0;
+        @include mixin.transition;
+    }
+
+    &:hover{
+        &::after{
+            top:0;
+            opacity: 0.8;
+        }
+
+        /* hover effect*/
+        .projects__btn{
+            opacity: 1;
+        }
+    }
+  }
+
+    &__bio-image{
+        height: 30vh;
+        width: 100%;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3));
+        background-position: center;
+        @include mixin.flexCenter(column);
+        clip-path: polygon(
+            0 0,
+            100% 0,
+            100% 100%,
+            0 calc(100% - 4vw)
+        );
+    
+       .text-secondary{
+           color: color(white-color);
+           text-transform: uppercase;
+       }
+    }
+
+    &__btns{
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        align-items: center;
+        text-align: center;
+    }
+
+    &__btn{
+        opacity: 0;
+        color: color(white-color);
+        @include mixin.transition;
+
+        &:hover{
+            color: color(navy-color);
+        }
+    }
+}

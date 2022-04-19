@@ -1,0 +1,127 @@
+@use 'mixin';
+
+a{
+  color: color(white-color);
+  text-decoration: none;
+}
+
+header{
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  padding: 16px;
+}
+
+.menu-btn {
+    position: absolute;
+    z-index: 1;
+    right: 16px;
+    top: 16px;
+    height: 20px;
+    width: 28px;
+    cursor: pointer;
+    @include mixin.transition;
+  
+    &__burger {
+      position: absolute;
+      right: 0;
+      top: 8px;
+      width: 28px;
+      height: 3px;
+      background: color(white-color);
+      @include mixin.transition;
+  
+      &::before {
+        content: '';
+        position: absolute;
+        top: -8px;
+        width: 20px;
+        height: 3px;
+        background: color(white-color);
+        @include mixin.transition;
+      }
+  
+      &::after {
+        content: '';
+        @extend .menu-btn__burger;
+      }
+  
+      &.open {
+        transform: rotateX(360deg);
+        background: transparent;  
+  
+        /* X */
+        &::before {
+          width: 28px;
+          transform: rotate(45deg) translate(5px, 8px);
+          background-color: color(red-light);
+        }
+  
+        &::after {
+          width: 28px;
+          transform: rotate(-45deg) translate(3px, -7px);
+          background-color: color(red-light);
+        }
+      }
+    }
+  }
+
+  .nav{
+      position: fixed;
+      top: 0;
+      left:0;
+      width: 100vw;
+      opacity: 1;
+      visibility: hidden;
+
+    &.open{
+      visibility: visible;
+    }
+
+    .menu-nav{
+        @include mixin.flexCenter(column);
+        height: 100vh;
+        margin-top: 10px;
+        overflow: hidden;
+        background: color(white-color);
+        list-style-type: none;
+        padding-right: 16px;
+        transform: translateY(-100%);
+        @include mixin.transition;
+
+        &.open{
+            transform: translateY(0);
+            margin-top: 0;
+            
+        }
+
+        &__item{
+            transform: translateX(100vh);
+            @include mixin.transition;
+
+            &.open{
+                transform: translateX(0);
+            }
+
+            &.active > a{
+                color: color(red-color);
+            }
+        }
+
+        &__link{
+            text-transform: uppercase;
+            font-size: 24px;
+            line-height: 2;
+            font-weight: 300;
+            color: color(red-light);
+            @include mixin.transition;
+        }
+    }
+}
+ 
+  // items
+  @for $i from 1 through 4 {
+    .menu-nav__item:nth-child(#{$i}) {
+      transition-delay: ($i * 0.1s) + 0.15s;
+    }
+}

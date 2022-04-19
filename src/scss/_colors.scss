@@ -1,0 +1,12 @@
+$colors:(
+    "yellow-color": #FBDE44FF,
+    "red-color": #F65058FF,
+    "white-color": #fff,
+    "navy-color": #28334AFF,
+    "green-color": #00ff99,
+    "red-light": lighten(#F65058FF, 20%)
+);
+
+@function color($color-name){
+    @return map-get($colors , $color-name );
+}
