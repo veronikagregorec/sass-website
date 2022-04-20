@@ -2,6 +2,7 @@ const { src, dest, watch, series } = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
 const prefix = require("gulp-autoprefixer");
 const minify = require("gulp-clean-css");
+const terser = require("gulp-terser");
 const imagemin = require("gulp-imagemin");
 const imagewebp = require("gulp-webp");
 
@@ -33,10 +34,16 @@ function webpImage() {
     .pipe(dest("dist/images"));
 }
 
+// minify js
+function jsmin() {
+  return src("src/js/*.js").pipe(terser()).pipe(dest("dist/js"));
+}
+
 function watchTask() {
   watch("src/scss/**/*.scss", compilescss);
   watch("src/images/*", optimizeimg);
+  watch("src/js/*.js", jsmin);
   watch("dist/images/*.{jpg,png}", webpImage);
 }
 
-exports.default = series(compilescss, optimizeimg, webpImage, watchTask);
+exports.default = series(compilescss, jsmin, optimizeimg, webpImage, watchTask);
