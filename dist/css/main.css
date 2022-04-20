@@ -591,3 +591,186 @@ main .home .web {
   margin-top: 50px;
 }
 
+.contact {
+  background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgba(40, 51, 74, 0.3))
+    ),
+    url(/dist/images/workspace.webp);
+  background-image: linear-gradient(rgba(40, 51, 74, 0.3)),
+    url(/dist/images/workspace.webp);
+  height: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  text-align: center;
+}
+.contact h2 {
+  margin-bottom: 32px;
+  color: #28334a;
+  text-transform: uppercase;
+}
+.contact form {
+  max-width: 550px;
+  width: 90%;
+  background-color: #fff;
+  margin: 14vh auto 0 auto;
+  padding: 40px;
+  border-radius: 5px;
+  -webkit-animation: downContact 2s ease;
+  animation: downContact 2s ease;
+}
+@-webkit-keyframes downContact {
+  0% {
+    -webkit-transform: translateY(200%) rotate(90deg) skewY(70deg);
+    transform: translateY(200%) rotate(90deg) skewY(70deg);
+  }
+  100% {
+    -webkit-transform: translateY(0) rotate(0) skewY(0);
+    transform: translateY(0) rotate(0) skewY(0);
+  }
+}
+@keyframes downContact {
+  0% {
+    -webkit-transform: translateY(200%) rotate(90deg) skewY(70deg);
+    transform: translateY(200%) rotate(90deg) skewY(70deg);
+  }
+  100% {
+    -webkit-transform: translateY(0) rotate(0) skewY(0);
+    transform: translateY(0) rotate(0) skewY(0);
+  }
+}
+.contact form label {
+  display: grid;
+  margin: 10px 0;
+}
+.contact form input,
+.contact form textarea {
+  width: 100%;
+  padding: 10px;
+  outline: 0;
+  border: none;
+  border-bottom: 1px solid #28334a;
+}
+.contact form textarea {
+  height: 15vh;
+  resize: none;
+}
+.contact form input[type="text"]:focus,
+.contact form textarea:focus {
+  border-bottom: 1px solid #fbde44;
+}
+.contact form input[type="submit"],
+.contact form textarea[type="submit"] {
+  margin-top: 16px;
+  border-bottom: none;
+  background: #28334a;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-image: linear-gradient(40deg, #28334a, #f65058);
+}
+.contact form input[type="submit"]:active,
+.contact form textarea[type="submit"]:active {
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+}
+.contact form ::-webkit-input-placeholder {
+  font-size: 16px;
+}
+.contact form ::-moz-placeholder {
+  font-size: 16px;
+}
+.contact form :-ms-input-placeholder {
+  font-size: 16px;
+}
+.contact form ::-ms-input-placeholder {
+  font-size: 16px;
+}
+.contact form ::placeholder {
+  font-size: 16px;
+}
+.contact .error-border {
+  border-bottom: 1px solid #f65058;
+}
+.contact .error {
+  color: #f65058;
+}
+.contact #success {
+  color: #28334a;
+  margin-top: 30px;
+  line-height: 2;
+  width: 100%;
+  background-color: #0f9;
+  border-radius: 5px;
+}
+@media (min-width: 768px) {
+  .menu-btn {
+    visibility: hidden;
+  }
+  .btn__contact {
+    width: 130px !important;
+    height: 40px !important;
+  }
+  .nav {
+    visibility: visible;
+  }
+  .nav .menu-nav {
+    display: block;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    height: 100%;
+    background: 0 0;
+    text-align: right;
+  }
+  .nav .menu-nav__item {
+    display: inline;
+    padding-right: 24px;
+  }
+  .nav .menu-nav__link {
+    font-size: 20px;
+  }
+  .about__bio {
+    margin-top: 80px;
+    font-size: 20px;
+  }
+  .projects__bio-image {
+    height: 40vh;
+    font-size: 20px;
+  }
+  .projects__items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .projects__items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .btn__contact {
+    width: 140px !important;
+    height: 50px !important;
+  }
+}
+@media (min-width: 1600px) {
+  .projects__bio-image {
+    height: 40vh;
+  }
+  .btn__contact {
+    width: 160px !important;
+    height: 60px !important;
+  }
+}
