@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link rel="stylesheet" href="dist/css/main.css" />
+    <link rel="stylesheet" href="font-awesome/all.css">
+    <link rel="stylesheet" href="font-awesome/fontawesome.min.css">
+	  <link rel="stylesheet" href="webfonts/">
+  </head>
+  <body>
+    <header>
+      <div class="menu-btn">
+        <span class="menu-btn__burger"> </span>
+      </div>
+
+      <nav class="nav">
+        <ul class="menu-nav">
+          <li class="menu-nav__item ">
+            <a href="index.html" class="menu-nav__link">Home</a>
+          </li>
+
+          <li class="menu-nav__item">
+            <a href="about.html" class="menu-nav__link">About</a>
+          </li>
+
+          <li class="menu-nav__item">
+            <a href="projects.html" class="menu-nav__link">Projects</a>
+          </li>
+
+          <li class="menu-nav__item active">
+            <a href="contact.html" class="menu-nav__link">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="contact">
+        <form action="#" onsubmit="event.preventDefault(); validateForm()">
+
+          <h2>Contact me</h2>
+
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Name">
+          <small class="error"></small>
+
+          <label for="email">Email</label>
+          <input type="text" id="email" placeholder="Email">
+          <small class="error"></small>
+
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Message"></textarea>
+          <small class="error"></small>
+
+          <input type="submit" value="Send">
+          <p id="success"></p>
+      
+        </form>
+
+        <div class="social-icons">
+          <a href="#">
+            <i class="fab fa-linkedin fa-2x"></i>
+          </a>
+
+          <a href="#">
+            <i class="fab fa-facebook fa-2x"></i>
+          </a>
+
+          <a href="#">
+            <i class="fab fa-instagram fa-2x"></i>
+          </a>
+
+          <a href="#">
+            <i class="fab fa-github fa-2x"></i>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <script src="src/js/script.js"></script>
+  </body>
+</html>
