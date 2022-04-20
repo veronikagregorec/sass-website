@@ -1,0 +1,98 @@
+$breakpoints: (
+  "tablet": 768px,
+  "laptop": 1024px,
+  "desktop": 1600px
+);
+
+@mixin tablet{
+    @media (min-width: map-get($breakpoints, "tablet")) {
+        @content;
+    }
+}
+
+@mixin laptop{
+    @media (min-width: map-get($breakpoints, "laptop")) {
+        @content;
+    }
+}
+
+@mixin desktop{
+    @media (min-width: map-get($breakpoints, "desktop")) {
+        @content;
+    }
+}
+
+@include tablet{
+    .menu-btn{
+        visibility: hidden;
+    }
+
+    .btn__contact{
+        width: 130px !important;
+        height: 40px !important;
+    }
+
+    .nav{
+        visibility: visible;
+
+        .menu-nav{
+            display: block;
+            transform: translateY(0);
+            height: 100%;
+            background: transparent;
+            text-align: right;
+
+            &__item{
+                display: inline;
+                padding-right: 24px;
+            }
+
+            &__link{
+                font-size: 20px;
+            }
+        }
+    }
+
+    .about__bio{
+        margin-top: 80px;
+        font-size: 20px;
+    }
+
+    .projects{
+        &__bio-image{
+            height: 40vh;
+            font-size: 20px;
+        }
+
+        &__items{
+            grid-template-columns: repeat(2,1fr);
+        }
+    }
+}
+
+
+@include laptop{
+    .projects{
+        &__items{
+            grid-template-columns: repeat(3,1fr);
+        }
+    }
+
+    .btn__contact{
+        width: 140px !important;
+        height: 50px !important;
+    }
+}
+
+@include desktop{
+    .projects{
+        &__bio-image{
+            height: 40vh;
+        }
+    }
+
+    .btn__contact{
+        width: 160px !important;
+        height: 60px !important;
+    }
+}
