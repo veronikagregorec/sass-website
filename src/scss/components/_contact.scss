@@ -1,0 +1,95 @@
+@use 'mixin';
+
+.contact{
+    background-image: linear-gradient(rgba(40, 51, 74, 0.3)), url(/dist/images/workspace.webp);
+    height: 100%;
+    overflow: hidden;
+    @include mixin.flexCenter(column);
+    text-align: center;
+
+   h2{
+        margin-bottom: 32px;
+        color: color(navy-color);
+        text-transform: uppercase;
+   }
+
+   form{
+    max-width: 550px;
+    width: 90%;
+    background-color: color(white-color);
+    margin: 14vh auto 0 auto;
+    padding: 40px;
+    border-radius: 5px;
+    animation: downContact 2s ease;
+    
+    @include mixin.keyframes(downContact) {
+        0% {
+            transform: translateY(200%) rotate(90deg) skewY(70deg);
+        }
+        
+        100% {
+            transform: translateY(0) rotate(0deg) skewY(0deg);
+        }
+    }
+
+
+    label{
+        display: grid;
+        margin: 10px 0;
+    }
+
+    input{
+        width: 100%;
+        padding: 10px;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid color(navy-color);
+    }
+
+    textarea{
+        @extend input;
+        height: 15vh;
+        resize: none;
+    }
+
+    input[type="text"]:focus, textarea:focus{
+        border-bottom: 1px solid color(yellow-color);
+    }
+
+    input[type="submit"]{
+        margin-top: 16px;
+        border-bottom: none;
+        background: color(navy-color);
+        color: color(white-color);
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        background-image: linear-gradient(40deg, color(navy-color), color(red-color));
+
+        &:active{
+            transform: scale(0.9);
+        }
+    }
+
+    ::placeholder{
+        font-size: 16px;
+    }
+}
+
+.error-border{
+    border-bottom: 1px solid color(red-color);
+}
+
+.error{
+    color: color(red-color);
+}
+
+#success{
+    color: color(navy-color);
+    margin-top: 30px;
+    line-height: 2;
+    width: 100%;
+    background-color: color(green-color);
+    border-radius: 5px;
+   }
+}
